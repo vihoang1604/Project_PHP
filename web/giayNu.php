@@ -21,240 +21,69 @@
 </head>
 <body>
 	<div class="wrapper">
-	<?php include("menu.php"); ?>
+
+		<?php 
+		include('connect.php');
+		include("menu.php");
+
+		 ?>
 	</div>
 		<div class="container-fluid">
 			<div class="row">
-				<div class="col-md-9">
+				<div class="col-md-9 ">
 					<div class="row">
-						<div class="col-md-4">
+					<?php 
+			        $sql = "SELECT * FROM products where category_id='2' ";
+			        $result = mysqli_query($mysqli,$sql);
+			        if($result)
+			        {
+			          while($row = mysqli_fetch_assoc($result))
+			          {?>
+						<div class="col-md-4 ">
 							<div class="row">
-								<div class="col-md-12">
+								<div class="col-md-12 ">
 									<div class="thumbnail">
 										<div class="hovereffect">
-										</br><a href="detailNu.php"><img src="./img/nu1.jpg" ></a>
+											
+										</br><a href="detailNam.php"><img src="<?php echo $row['img']; ?>" ></a>
 									</div>
 										<div class="caption">
 											</br><p>
-												<label>Giay Cao Gót</label>
+												<label><?php echo $row['prod_name']; ?> </label>
 											</p>
 											<p>
-												<label>$$ 500.000VND</label>
+												<label><?php echo $row['price']; ?>.000 vnđ</label>
 											</p>
 											<p>
-												<a href="detailNu.php" class="btn btn-danger">Add to card</a>
-												<a href="chitiet.html">Chi Tiết Sản Phẩm</a>
+												<a href="detailNu.php?id=<?php echo $row['id'] ?>" class="btn btn-danger">Add to card</a>
+												<a href="detailNu.php?id=<?php echo $row['id'] ?>">Chi Tiết Sản Phẩm</a>
 											</p>
+										
+								
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="col-md-4">
-							<div class="row">
-								<div class="col-md-12">
-									<div class="thumbnail">
-										<div class="hovereffect">
-										</br><img src="./img/nu2.jpg">
-										</div>
-										<div class="caption">
-											</br><p>
-												<label>Giay Thể Thao</label>
-											</p>
-											<p>
-												<label>$$ 555.000VND</label>
-											</p>
-											<p>
-												<a href="#" class="btn btn-danger">Add to card</a>
-												<a href="">Chi Tiết Sản Phẩm</a>
-											</p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4">
-							<div class="row">
-								<div class="col-md-12">
-									<div class="thumbnail">
-										<div class="hovereffect">
-										</br><img src="./img/nu3.jpg">
-									</div>
-										<div class="caption">
-											</br><p>
-												<label>Giay Cao Gót</label>
-											</p>
-											<p>
-												<label>$$ 550.000VND</label>
-											</p>
-											<p>
-												<a href="#" class="btn btn-danger">Add to card</a>
-												<a href="">Chi Tiết Sản Phẩm</a>
-											</p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-4">
-							<div class="row">
-								<div class="col-md-12">
-									<div class="thumbnail">
-										<div class="hovereffect">
-										</br><img src="./img/nu4.jpg">
-									</div>
-										<div class="caption">
-											</br><p>
-												<label>Giay Búp Bê Da</label>
-											</p>
-											<p>
-												<label>$$ 700.000VND</label>
-											</p>
-											<p>
-												<a href="#" class="btn btn-danger">Add to card</a>
-												<a href="">Chi Tiết Sản Phẩm</a>
-											</p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4">
-							<div class="row">
-								<div class="col-md-12">
-									<div class="thumbnail">
-										<div class="hovereffect">
-										</br><img src="./img/nu5.jpg" width="">
-									</div>
-										<div class="caption">
-											</br><p>
-												<label>Giay Cao Gót</label>
-											</p>
-											<p>
-												<label>$$ 505.000VND</label>
-											</p>
-											<p>
-												<a href="#" class="btn btn-danger">Add to card</a>
-												<a href="">Chi Tiết Sản Phẩm</a>
-											</p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4">
-							<div class="row">
-								<div class="col-md-12">
-									<div class="thumbnail">
-										<div class="hovereffect">
-										</br><img src="./img/nu6.jpg">
-									</div>
-										<div class="caption">
-											</br><p>
-												<label>Giay Cao Gót</label>
-											</p>
-											<p>
-												<label>$$ 800.000VND</label>
-											</p>
-											<p>
-												<a href="#" class="btn btn-danger">Add to card</a>
-												<a href="">Chi Tiết Sản Phẩm</a>
-											</p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						
-					</div>
-					<div class="row">
-						<div class="col-md-4">
-							<div class="row">
-								<div class="col-md-12">
-									<div class="thumbnail">
-										<div class="hovereffect">
-										</br><img src="./img/nu7.jpg">
-									</div>
-										<div class="caption">
-											</br><p>
-												<label>Giay Thể Thao Nữ</label>
-											</p>
-											<p>
-												<label>$$ 600.000VND</label>
-											</p>
-											<p>
-												<a href="#" class="btn btn-danger">Add to card</a>
-												<a href="">Chi Tiết Sản Phẩm</a>
-											</p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>	
-
-						<div class="col-md-4">
-							<div class="row">
-								<div class="col-md-12">
-									<div class="thumbnail">
-										<div class="hovereffect">
-									</br><img src="./img/nu8.jpg">
-								</div>
-										<div class="caption">
-											</br><p>
-												<label>Giay Thể Thao Nữ</label>
-											</p>
-											<p>
-												<label>$$ 650.000VND</label>
-											</p>
-											<p>
-												<a href="#" class="btn btn-danger">Add to card</a>
-												<a href="">Chi Tiết Sản Phẩm</a>
-											</p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4">
-							<div class="row">
-								<div class="col-md-12">
-									<div class="thumbnail">
-										<div class="hovereffect">
-										</br><img src="./img/nu9.jpg">
-									</div>
-										<div class="caption">
-											</br><p>
-												<label>Giay Thể Thao Nữ</label>
-											</p>
-											<p>
-												<label>$$ 900.000VND</label>
-											</p>
-											<p>
-												<a href="#" class="btn btn-danger">Add to card</a>
-												<a href="">Chi Tiết Sản Phẩm</a>
-											</p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+							<?php }} ?>
+				</div>	
+			</div>
+			<div class="col-md-3 ">
+				</br></br><div class="row">
+					<button type="button" class="button"><img src="img/sales.gif" style="width: 300px; height: 500px;"></button>	
 				</div>
-				<div class=" col-md-3">
-					</br></br><div class="row">
-						<button type="button" class="button"><img src="img/sales.gif" style="width: 300px; height: 500px;"></button>	
-					</div>
-					</br></br></br><div class="row">
-						<button type="button" class="button"><img src="img/giamgia.gif" style="width: 300px; height: 500px;"></button>	
-					</div>
+				</br></br></br><div class="row">
+					<button type="button" class="button"><img src="img/giamgia.gif" style="width: 300px; height: 500px;"></button>	
 				</div>
 			</div>
+	</div>
+			
+		
 
 
 
-		<?php include("footer.php"); ?>
+	<?php include("footer.php"); ?>
+
 </body>
 
 

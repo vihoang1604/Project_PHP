@@ -21,23 +21,33 @@
 </head>
 <body>
 	<div class="wrapper">
-			<?php include("menu.php"); ?>
+			<?php include("menu.php");
+			$id= $_GET['id'] ;
+			?>
 		
 	</div>
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
 					<div class="row">
+						<?php 
+						              $sql = "SELECT * FROM products where id=$id ";
+						              $result = mysqli_query($mysqli,$sql);
+						              if($result)
+						              {
+						                while($row = mysqli_fetch_assoc($result))
+						                {?>
 						</br></br><div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
 							<div class="hovereffect">
-							<img src="img/nam1.jpg" width="400px" height="400px">
+							<img src="<?php echo $row['img']; ?>" width="400px" height="400px">
 							</div>
 						</div>
+					<?php }} ?>
 						<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
 							<div class="page-header">
 								<h2>Thông tin mua hàng</h2>
 								<p>
-									<label><u>Nhà sản xuất: </u>Web Giày Dép</label> 						
+									<label> <u>Nhà Sản xuất :</u> Công ty phát triển website </label>					
 								</p>
 								<p>
 									<label> <u>Mã Sản Phẩm :</u> 4240</label> 						
@@ -49,14 +59,28 @@
 									<label> <u>Chất Liệu  :</u> Da, da lộn, vải</label>
 								</p>
 								<p>
-									<label> <u> Điện Thoại :</u> 01254834122</label>
+									<?php 
+						              $sql = "SELECT * FROM publishers where id=$id ";
+						              $result = mysqli_query($mysqli,$sql);
+						              if($result)
+						              {
+						                while($row = mysqli_fetch_assoc($result))
+						                {?>
+									<label><u>Số điện thoại: </u><?php echo $row['phone']; ?></label> <?php }} ?>	
 								</p>
 								<p>
 									<label> <u> Bảo hành  :</u> Hoàn tiền trong 6 tháng, sửa chữa miễn phí không giới hạn thời gian</label>
 								</p>
 
 								<p>
-									<label><u>Gía bán :</u> 500.000VND</label>
+									<?php 
+						              $sql = "SELECT * FROM products where id=$id ";
+						              $result = mysqli_query($mysqli,$sql);
+						              if($result)
+						              {
+						                while($row = mysqli_fetch_assoc($result))
+						                {?>
+									<label><u>: Gía bán </u><?php echo $row['price']; ?>.000 vnđ</label> <?php }} ?>
 								</p>
 								<p>
 									<button type="button" class="btn btn-danger">Add to card</button>
@@ -87,7 +111,7 @@
 
 
 </html>
-<table id="cart" class="table table-hover table-condensed">
+<!-- <table id="cart" class="table table-hover table-condensed">
     				<thead>
 						<tr>
 							<th style="width:50%">Product</th>
@@ -130,4 +154,4 @@
 							<td><a href="#" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
 						</tr>
 					</tfoot>
-				</table>
+				</table> -->

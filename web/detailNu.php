@@ -4,21 +4,19 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Chi Tiết Sản Phẩm Trẻ Em</title>
-	<link rel="stylesheet" href="styleNam.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-	<!-- Latest compiled and minified CSS & JS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-	<style type="text/css">
-		header {
+	<title>Giay Nam</title>
+      <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css"/>
+      <link rel="stylesheet" href="styleNam.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+      <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+      <style type="text/css">
+      	header {
       width: 100%;
-      height: 90vh;
-      background: url(https://static.robins.vn/cms/image/20180813-kids-h1.jpg) no-repeat;
+      height: 50rem;
+      background: url(http://vn-test-11.slatic.net/skyline/i8/d10ea94617cc4763b6197b79c83397fb-1360-480.jpg_desktop.jpg) no-repeat;
       background-size: 100%;
 }
-
-	</style>
+      </style>
 </head>
 <body>
 	<div class="wrapper">
@@ -48,7 +46,7 @@
 							<div class="page-header">
 								<h2>Thông tin mua hàng</h2>
 								<p>
-									<label> <u>Nhà Sản xuất :</u> Công ty phát triển website </label>				
+									<label> <u>Nhà Sản xuất :</u> Công ty phát triển website </label>						
 								</p>
 								<p>
 									<label> <u>Mã Sản Phẩm :</u> 4240</label> 						
@@ -108,6 +106,7 @@
 			</div>
 			<?php include("footer.php"); ?>
 </body>
+
 
 
 </html>

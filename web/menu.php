@@ -1,4 +1,7 @@
-<?php error_reporting(1); ?>
+<?php error_reporting(1); 
+include('connect.php');
+
+?>
 <style type="text/css">
   ul.dropdown-menu > li:hover, ul.dropdown-menu > li a:hover{
     background-color: white;
@@ -29,9 +32,16 @@
   <li class="dropdown">
     <a href="#" class="dropdown-toggle" onclick="back()" data-toggle="dropdown">Sản Phẩm<span class="caret"></span></a>
     <ul class="dropdown-menu" style="background-color: black; padding: 0px;">
-      <li style="width: 100%;"><a href="giaynam.php" style="color:#8764db;">Giày Nam</a></li>
-      <li style="width: 100%;"><a href="giaynu.php" style="color:#8764db;">Giày Nữ</a></li>
-      <li><a href="giaytreem.php" style="color:#8764db;">Giày Trẻ Em</a></li>
+      <li style="width: 100%;"><a href="giaynam.php" style="color:#8764db;">Dày Nam</a></li>
+      <li style="width: 100%;"><a href="giaynu.php" style="color:#8764db;">Dày Nữ</a></li>
+      <li style="width: 100%;"><a href="giayTreEm.php" style="color:#8764db;">Dày Trẻ Em</a></li>
+    </ul>
+  </li>
+<li class="dropdown">
+    <a href="#" class="dropdown-toggle" onclick="back()" data-toggle="dropdown">Đăng nhập<span class="caret"></span></a>
+    <ul class="dropdown-menu" style="background-color: black; padding: 0px;">
+      <li style="width: 100%;"><a href="giaynam.php" style="color:#8764db;">Đăng nhập</a></li>
+      <li style="width: 100%;"><a href="giaynam.php" style="color:#8764db;">Đăng kí</a></li>
     </ul>
   </li>
   <li><a href="#" id="link" onclick="cart()"><span class="glyphicon glyphicon-shopping-cart"><span class="badge badge-danger" id="cart">0</span></span> Giỏ Hàng</a></li>
