@@ -15,26 +15,29 @@
 </head>
 
 <body>
-	<div class="container">
+	<?php error_reporting(1);
+	 require_once('connect.php');
+	 include('headerAdmin.php'); ?>
+	<div class="container" style="padding-top: 108px; margin : 0px; width: 100%" ">
 
 		<div class="row">
 
 			<div class="panel panel-danger">
 				<div class="panel-heading">
-					<h3 class="panel-title">Add Category</h3>
+					<h3 class="panel-title">Thêm Thể Loại</h3>
 				</div>
 				<div class="panel-body">
 					<form action="insertCate.php" method="post" name="forml" id="forml">
 
 						<div class="row">
 
-							<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-								Category name:
+							<div class="row">
+								Tên Thể loại:
 							</div>
 
-							<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+							<div class="row">
 
-								<input type="text" name="ca_name"  class="form-control" >
+								<input type="text" name="ca_name"  class="form-control" required="Bạn nhập tên thể loại" >
 
 							</div>
 
@@ -43,22 +46,24 @@
 						
 						<div class="row">
 
-							<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-								Comments:
+							<div class="row">
+								Ghi chú
 							</div>
 
-							<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+							<div class="row">
 
-								<input type="text" name="ca_com" id="dt" class="form-control">
+								<input type="text" name="ca_com" id="dt" class="form-control" required="Bạn nhập ghi chú thể loại">
 
 							</div>
 
 
 						</div>
-
+						<br>
 						<div class="row">
 
-							<button type="submit" name="submit" value="add" class="btn btn-primary">INSERT</button>
+							<button type="submit" name="submit" value="add" class="btn btn-primary">Thêm Thể loại</button>
+							<button type="submit" name="submit" value="add" class="btn btn-primary" ><a href="displayProduct.php" style="color: white "> Thoát</a></button>
+
 
 						</div>
 

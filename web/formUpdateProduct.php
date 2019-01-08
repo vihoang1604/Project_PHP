@@ -18,6 +18,8 @@
 	<?php
 	error_reporting(1);
 	 require_once('connect.php');
+	 include('headerAdmin.php');
+
 	if(isset($_GET['id'])){
 	$id = $_GET['id'];
 	$sql     = "SELECT * FROM products WHERE id='$id'";
@@ -30,70 +32,75 @@
 	$sl = $row['quantity'];
 	$idCategory = $row['category_id'];
 	$cmt     = $row['comments'];
+	$des=$row['describes'];
 	$date = $row['imported_date'];
 	$imag = $row['img']; 
 }}
-	?>
 
-	<div class="container">
+?>
+
+	<div class="container" style="padding-top: 108px ; margin : 0px; width: 100%" >
 
 		<div class="row">
 
 			<div class="panel panel-danger">
 				<div class="panel-heading">
-					<h3 class="panel-title">Add Category</h3>
+					<h1 class="panel-title"> Sửa Sản phẩm </h1>
 				</div>
 				<div class="panel-body">
 					<form action="updateProduct.php" method="post" name="forml" id="forml" enctype="multipart/form-data">
 						<div class="row">
 
-							<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-								Product name:
+							<div class="row">
+								Tên sản phẩm 
 							</div>
 
-							<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+							<div class="row">
+								<input type="text" name="p_name"  class="form-control" value="<?php echo $ten ?>" require>
+								
+								
+							</div>
 
-								<input type="text" name="p_name"  class="form-control" value="<?php echo $ten ?>">
+
+						</div>
+						<br>
+						<div class="row">
+
+							<div class="row">
+								Gía sản phẩm
+							</div>
+
+							<div class="row">
+
+								<input type="number" name="p_price" id="rong" class="form-control"value="<?php echo $gia ?>" require>
 
 							</div>
 
 
 						</div>
+						<br>
 						<div class="row">
 
-							<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-								Price:
+							<div class="row">
+								Số lượng sản phẩm
 							</div>
 
-							<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+							<div class="row">
 
-								<input type="number" name="p_price" id="rong" class="form-control"value="<?php echo $gia ?>">
+								<input type="number" name="p_quan" id="dt" class="form-control"value="<?php echo $sl ?>" require>
 
 							</div>
 
 
 						</div>
+						<br>
 						<div class="row">
 
-							<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-								Quantity:
+							<div class="row">
+								Thể loại sản phẩm
 							</div>
 
-							<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-
-								<input type="number" name="p_quan" id="dt" class="form-control"value="<?php echo $sl ?>">
-
-							</div>
-
-
-						</div>
-						<div class="row">
-
-							<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-								Cate_id:
-							</div>
-
-							<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+							<div class="row">
 								<select class="form-control" name="p_cate">
 									<?php 	include("connect.php");
     	                                        $idCategory = $row['category_id'];
@@ -121,47 +128,61 @@
 
 
 						</div>
+						<br>
 						<div class="row">
 
-							<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-								Comments:
+							<div class="row">
+								Đặc tả 
 							</div>
 
-							<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+							<div class="row">
 
 								<input type="text" name="p_com" id="dt" class="form-control"
-								value="<?php echo $cmt ?>">
+								value="<?php echo $cmt ?>" require>
 
 							</div>
-
-
-						</div>
-						
+							<br>
 						<div class="row">
 
-							<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-								Image:
+							<div class="row">
+								Mô tả 
 							</div>
-							<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+
+							<div class="row">
+
+								<input type="text" name="p_des" id="dt" class="form-control"
+								value="<?php echo $des ?>" require>
+
+							</div>
+
+						</div>
+						<br>
+						<div class="row">
+
+							<div class="row">
+								Ảnh sản phẩm
+							</div>
+							<div class="row">
 								<img src="<?php echo $imag ?>">
-								<input type="text" name="img" class="hidden" value="<?php echo $imag ?>">
+								<input type="text" name="img" class="hidden" value="<?php echo $imag ?>" require>
 								<input type="file" name="fileUpload">
 							</div>
 						</div>
 
 
-
+						<br>
 						<div class="row">
 
-							<button type="submit" name="submit" value="add" class="btn btn-primary">UPDATE</button>
+							<button type="submit" name="btUpdate" value="add" class="btn btn-primary">Sửa sản phẩm</button>
+							<button type="submit" name="submit" value="add" class="btn btn-primary" ><a href="displayProduct.php" style="color: white "> Thoát</a></button>
+
 
 						</div>
 						<input type="text" name="id" class="hidden" value="<?php echo $id ?>">
 
 					</form>
 					
-
-
+					
 
 
 

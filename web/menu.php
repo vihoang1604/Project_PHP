@@ -38,11 +38,8 @@ include('connect.php');
     </ul>
   </li>
 <li class="dropdown">
-    <a href="#" class="dropdown-toggle" onclick="back()" data-toggle="dropdown">Đăng nhập<span class="caret"></span></a>
-    <ul class="dropdown-menu" style="background-color: black; padding: 0px;">
-      <li style="width: 100%;"><a href="giaynam.php" style="color:#8764db;">Đăng nhập</a></li>
-      <li style="width: 100%;"><a href="giaynam.php" style="color:#8764db;">Đăng kí</a></li>
-    </ul>
+    <a href="Test_Login.php" >Đăng nhập |</a>
+   <a href="Sign_In.php" >Đăng kí</a>
   </li>
   <li><a href="#" id="link" onclick="cart()"><span class="glyphicon glyphicon-shopping-cart"><span class="badge badge-danger" id="cart">0</span></span> Giỏ Hàng</a></li>
   
@@ -63,7 +60,7 @@ include('connect.php');
 
 
 
-<div id="myModal" class="modal fade" role="dialog">
+<!-- <div id="myModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
     <div class="modal-content">
@@ -200,3 +197,4 @@ include('connect.php');
 
   </div>
 </div>
+ -->

@@ -2,7 +2,7 @@
     alert("Đã gọi file thành công");
 </script>
 <?php
- include("Connection.php");
+ include("Connect.php");
     // Nếu không phải là sự kiện đăng ký thì không xử lý
     if (!isset($_POST['dangki'])){
         die('');
@@ -34,11 +34,11 @@
     }
           
     //Kiểm tra email có đúng định dạng hay không
-  if (!eregi("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$", $email))
-    {
-        echo "Email này không hợp lệ. Vui lòng nhập email khác. <a href='javascript: history.go(-1)'>Trở lại</a>";
-        exit;
-    }
+  // if (!eregi("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$", $email))
+  //   {
+  //       echo "Email này không hợp lệ. Vui lòng nhập email khác. <a href='javascript: history.go(-1)'>Trở lại</a>";
+  //       exit;
+  //   }
           
     //Kiểm tra email đã có người dùng chưa
  if (mysqli_num_rows(mysqli_query("SELECT email FROM users WHERE email='$email'")) > 0)

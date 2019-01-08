@@ -50,23 +50,41 @@
 									<label> <u>Nhà Sản xuất :</u> Công ty phát triển website </label>					
 								</p>
 								<p>
-									<label> <u>Mã Sản Phẩm :</u> 4240</label> 						
-								</p>
-								<p>
-									<label> <u>Xuất xứ :</u> Hàng chính hãng xuất khẩu</u></label>
-								</p>
-								<p>
-									<label> <u>Chất Liệu  :</u> Da, da lộn, vải</label>
-								</p>
-								<p>
 									<?php 
-						              $sql = "SELECT * FROM publishers where id=$id ";
+						              $sql = "SELECT * FROM products where id=$id ";
 						              $result = mysqli_query($mysqli,$sql);
 						              if($result)
 						              {
 						                while($row = mysqli_fetch_assoc($result))
 						                {?>
-									<label><u>Số điện thoại: </u><?php echo $row['phone']; ?></label> <?php }} ?>	
+									<label> <u>Mã Sản Phẩm :</u> 4240A<?php echo $row['id']; ?></label> <?php }} ?>					
+								</p>
+								<p>
+									<?php 
+						              $sql = "SELECT * FROM products where id=$id ";
+						              $result = mysqli_query($mysqli,$sql);
+						              if($result)
+						              {
+						                while($row = mysqli_fetch_assoc($result))
+						                {?>
+									<label> <u>Số lượng Sản Phẩm còn :</u> <?php echo $row['quantity']; ?> Đôi</label> <?php }} ?>					
+								</p>
+								<p>
+									<label> <u>Xuất xứ :</u> Hàng chính hãng xuất khẩu</u></label>
+								</p>
+								<p>
+									<?php 
+						              $sql = "SELECT * FROM products where id=$id ";
+						              $result = mysqli_query($mysqli,$sql);
+						              if($result)
+						              {
+						                while($row = mysqli_fetch_assoc($result))
+						                {?>
+									<label> <u>Chất Liệu  :</u> <?php echo $row['describes']; ?></label> <?php }} ?>	
+								</p>
+								<p>
+									
+									<label><u>Số điện thoại: </u>01254834122</label> 	
 								</p>
 								<p>
 									<label> <u> Bảo hành  :</u> Hoàn tiền trong 6 tháng, sửa chữa miễn phí không giới hạn thời gian</label>
@@ -80,7 +98,7 @@
 						              {
 						                while($row = mysqli_fetch_assoc($result))
 						                {?>
-									<label><u>: Gía bán </u><?php echo $row['price']; ?>.000 vnđ</label> <?php }} ?>
+									<label><u> Gía bán </u><?php echo $row['price']; ?>.000 vnđ</label> <?php }} ?>
 								</p>
 								<p>
 									<button type="button" class="btn btn-danger">Add to card</button>
@@ -99,12 +117,45 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="hovereffect">
-					<img src="img/nam1.jpg" width="400px" height="400px">
-					<img src="img/nam10.jpg" width="400px" height="400px">
-					<img src="img/nam11.jpg" width="400px" height="400px">
+				<div class="col-md-12 ">
+					<div class="row">
+					<?php 
+			        $sql = "SELECT * FROM products where category_id='1' limit 6 ";
+			        $result = mysqli_query($mysqli,$sql);
+			        if($result)
+			        {
+			          while($row = mysqli_fetch_assoc($result))
+			          {?>
+						<div class="col-md-4 ">
+							<div class="row">
+								<div class="col-md-12 ">
+									<div class="thumbnail">
+										<div class="hovereffect">
+											
+										</br><a href="detailNam.php"><img src="<?php echo $row['img']; ?>" ></a>
+									</div>
+										<div class="caption">
+											</br><p>
+												<label><?php echo $row['prod_name']; ?> </label>
+											</p>
+											<p>
+												<label><?php echo $row['price']; ?>.000 vnđ</label>
+											</p>
+											<p>
+												<a href="detailNam.php" class="btn btn-danger">Add to card</a>
+												<a href="detailNam.php?id=<?php echo $row['id'] ?>">Chi Tiết Sản Phẩm</a>
+											</p>
+										
+								
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+							<?php }} ?>
 				</div>
 			</div>
+		</div>
 			<?php include("footer.php"); ?>
 </body>
 
