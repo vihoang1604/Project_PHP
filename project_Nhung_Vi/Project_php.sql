@@ -53,7 +53,7 @@ fullname varchar(225),
 user_name varchar(100) unique,
 email varchar(255) unique,
 passwords varchar(255),
-level tinyint
+levels tinyint null
 );
 
 
@@ -135,3 +135,12 @@ insert into prod_orders values
 (9,6,1),
 (14,6,1),
 (17,6,1);
+
+insert into users(fullname,user_name,email,passwords,levels)
+values('nguyenthithao','thaonguyen','thao.nguyen@gmail.com','thaonguyen123',0),
+('nguyen thi phuong nhungusers','administrator','nhung.nguyen@gmail.com','matkhau',1);
+
+
+
+
+
