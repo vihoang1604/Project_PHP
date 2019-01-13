@@ -41,7 +41,26 @@ include('connect.php');
     <a href="Test_Login.php" >Đăng nhập |</a>
    <a href="Sign_In.php" >Đăng kí</a>
   </li>
-  <li><a href="#" id="link" onclick="cart()"><span class="glyphicon glyphicon-shopping-cart"><span class="badge badge-danger" id="cart">0</span></span> Giỏ Hàng</a></li>
+
+  <li>
+    <a id="link" class="cart_viewer"  href="#open-modal">
+      <span class="glyphicon glyphicon-shopping-cart"></span>
+
+    </span> Giỏ Hàng 
+    <b style="color: white">(
+      <?php 
+      if(isset($_SESSION["cart_item"])){
+    $total_quantity = 0;
+    foreach ($_SESSION["cart_item"] as $item){
+       $total_quantity += $item["quantity"];
+    }
+    echo $total_quantity; 
+  }
+      
+      ?>
+    )</b>
+  </a>
+  </li>
   
 </div>
 </nav>

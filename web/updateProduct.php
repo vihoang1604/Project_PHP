@@ -33,11 +33,16 @@ if (isset($_FILES['fileUpload'])) {
     }
 
     if ($mysqli->query($sql)=== true ) {
-		echo" Update successfully <br>";
+		//echo" Update successfully <br>";
+    
+
+        header("Location: displayProduct.php"); /* Redirect browser */
+        exit(); /* Redirect browser */
 	}
-		else
-		{
-	echo"<br>ERROR:Couls not able to execute $sql.".$mysqli-> error;
-		}
+		//else
+		//{
+	//echo"<br>ERROR:Couls not able to execute $sql.".$mysqli-> error;
+		//}
+        //
 
  ?>

@@ -78,6 +78,7 @@ if (isset($_POST['dangnhap']))
 
                     <div class="form-group">
                         <a href="" "email me" > Forget password? </a>
+                        <a href="Sign_In.php"  > Sign in </a>
 
                     </div>
 

@@ -34,14 +34,15 @@ if($stmt = $mysqli->prepare($sql)){
     $p_img = "img/".$_FILES['fileUpload']['name'];
     $stmt->execute();
     
-    echo "Records inserted successfully.";
-} else{
-    echo "ERROR: Could not prepare query: $sql. " . $mysqli->error;
+   // echo "Records inserted successfully.";
+//} else{
+   // echo "ERROR: Could not prepare query: $sql. " . $mysqli->error;
 }
 
 // Close statement
 $stmt->close();
-
+header("Location: formProduct.php"); /* Redirect browser */
+exit(); /* Redirect browser */
 // Close connection
 $mysqli->close();
 ?>
