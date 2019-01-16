@@ -15,7 +15,7 @@
 </head>
 <body>
 	<?php error_reporting(1);
-	 require_once('connect.php');
+	 include('connect.php');
 	 include('headerAdmin.php');
 	 ?>
 <div class="container" style="padding-top: 108px ; margin : 0px; width: 100%" >
@@ -24,10 +24,10 @@
 
 			<div class="panel panel-danger">
 				<div class="panel-heading">
-					<h1 class="panel-title"> Sửa Sản phẩm </h1>
+					<h1 class="panel-title"> Thêm Sản Phẩm </h1>
 				</div>
 				<div class="panel-body">
-					<form action="updateProduct.php" method="post" name="forml" id="forml" enctype="multipart/form-data">
+					<form action="insertProd.php" method="post" name="forml" id="forml" enctype="multipart/form-data">
 						<div class="row">
 
 							<div class="row">
@@ -103,7 +103,7 @@
 						<div class="row">
 
 							<div class="row">
-								Đặc tả 
+								Status
 							</div>
 
 							<div class="row">
@@ -144,7 +144,7 @@
 						<br>
 						<div class="row">
 
-							<button type="submit" name="btUpdate" value="add" class="btn btn-primary">Sửa sản phẩm</button>
+							<button type="submit" name="btUpdate" value="add" class="btn btn-primary">Thêm sản phẩm</button>
 							<button type="submit" name="submit" value="add" class="btn btn-primary" ><a href="displayProduct.php" style="color: white "> Thoát</a></button>
 
 

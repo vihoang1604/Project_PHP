@@ -1,7 +1,4 @@
-<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
-
+<?php include("addCart.php") ?>
 <!DOCTYPE html>
 <html lang="pt-br">
    <head>
@@ -47,7 +44,7 @@
                     </div>
                </div>
                <div class="col-md-3">
-                 <button type="button" class="button"><img src="img/sales.gif" style="width: 300px; height: 430px;"></button>
+                <?php include("slide.php"); ?>
                </div>
             </div>
           </div>
@@ -170,48 +167,55 @@
     </div>
           </div>
         </div>
+ <form method="post" action="giayNam.php?action=add&code=<?php echo $row['id']["code"]; ?>">       
 <div class="row">
   <div class="col-md-12 ">
     <div class="row">
       <h1>Những sản phẩm bán chạy nhất</h1>
     </div>
     <div class="row">
-          <?php 
-              $sql = "SELECT * FROM products where comments='1' limit 3 ";
-              $result = mysqli_query($mysqli,$sql);
-              if($result)
-              {
-                while($row = mysqli_fetch_assoc($result))
-                {?>
-            <div class="col-md-4 ">
-              <div class="row">
-                <div class="col-md-12 ">
-                  <div class="thumbnail">
-                    <div class="hovereffect">
-                      
-                    </br><a href="detailNam.php"><img src="<?php echo $row['img']; ?>" ></a>
-                  </div>
-                    <div class="caption">
-                      </br><p>
-                        <label><?php echo $row['prod_name']; ?> </label>
-                      </p>
-                      <p>
-                        <label><?php echo $row['price']; ?>.000 vnđ</label>
-                      </p>
-                      <p>
-                        <a href="detailNam.php" class="btn btn-danger">Add to card</a>
-                        <a href="chitiet.html">Chi Tiết Sản Phẩm</a>
-                      </p>
-                    
-                
+          <?php
+          $id= $_GET['id'] ; 
+          $sql = "SELECT * FROM products where comments='1' limit 3; ";
+          $result = mysqli_query($mysqli,$sql);
+          if($result)
+          {
+            while($row = mysqli_fetch_assoc($result))
+              {?>
+                <form method="post" action="index.php?action=add&code=<?php echo $row['id']["code"]; ?>">
+                  <div class="col-md-4 ">
+                    <div class="row">
+                      <div class="col-md-12 ">
+                        <div class="thumbnail">
+                          <div class="hovereffect">
+                          </br>
+                          <a href="detailNam.php"><img src="<?php echo $row['img']; ?>" ></a>
+                        </div>
+                        <div class="caption">
+                        </br><p>7
+                          <label><?php echo $row['prod_name']; ?> </label>
+                        </p>
+                        <p>
+                          <label><?php echo $row['price']; ?>.000 vnđ</label>
+                        </p>
+                        <p>
+                          <div class="cart-action">
+                            <input type="text" class="product-quantity" name="quantity" value="1" size="2" />
+                            <input type="submit" class="btn btn-danger" value="Add to Cart" class="btnAddAction" />
+                          </div>
+                          <br>
+                          <a href="detailNam.php?id=<?php echo $row['id'] ?>&category_id=<?php echo $row['category_id'] ?> ">Chi Tiết Sản Phẩm</a>
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-              <?php }} ?>
-        </div>
+            </form>
+          <?php }} ?>
+        </div>  
 </div>
+</from>
 <div class="row">
   <div class="col-md-6">
     </br></br></br></br></br><iframe style="width:660px ; height:605px; " src="https://www.youtube.com/embed/oz7RmPfNNQs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -281,7 +285,9 @@
     </div>
   </div>
 </div>
-        <?php include("footer.php"); ?>
+        <?php include("footer.php"); 
+        include("modelCart.php");
+        ?>
    </body>
 </html>
 

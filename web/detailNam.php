@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,11 +23,14 @@
 <body>
 	<div class="wrapper">
 			<?php include("menu.php");
+			include("addCart.php");
 			$id= $_GET['id'] ;
+			$id_cat= $_GET['category_id'] ;
 			?>
 		
 	</div>
 		<div class="container-fluid">
+			<form method="post" action="detailNam.php?action=add&code=<?php echo $row['id']["code"]; ?>">
 			<div class="row">
 				<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
 					<div class="row">
@@ -101,7 +105,10 @@
 									<label><u> Gía bán </u><?php echo $row['price']; ?>.000 vnđ</label> <?php }} ?>
 								</p>
 								<p>
-									<button type="button" class="btn btn-danger">Add to card</button>
+									<div class="cart-action">
+										<input type="text" class="product-quantity" name="quantity" value="1" size="2" />
+										<input type="submit" class="btn btn-danger" value="Add to Cart" class="btnAddAction" />
+									</div>
 								</p>
 
 							</div>
@@ -111,98 +118,55 @@
 
 				<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
 				</br></br>
-					<div class="row">
-						<button type="button" class="button"><img src="img/sales.gif" style="width: 300px; height: 400px;"></button>		
-					</div>
+					<?php include("slide.php"); ?>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-12 ">
-					<div class="row">
-					<?php 
-			        $sql = "SELECT * FROM products where category_id='1' limit 6 ";
-			        $result = mysqli_query($mysqli,$sql);
-			        if($result)
-			        {
-			          while($row = mysqli_fetch_assoc($result))
-			          {?>
-						<div class="col-md-4 ">
-							<div class="row">
-								<div class="col-md-12 ">
-									<div class="thumbnail">
-										<div class="hovereffect">
-											
-										</br><a href="detailNam.php"><img src="<?php echo $row['img']; ?>" ></a>
-									</div>
-										<div class="caption">
-											</br><p>
-												<label><?php echo $row['prod_name']; ?> </label>
-											</p>
-											<p>
-												<label><?php echo $row['price']; ?>.000 vnđ</label>
-											</p>
-											<p>
-												<a href="detailNam.php" class="btn btn-danger">Add to card</a>
-												<a href="detailNam.php?id=<?php echo $row['id'] ?>">Chi Tiết Sản Phẩm</a>
-											</p>
-										
-								
+					<?php
+					$sql = "SELECT * FROM products where category_id=$id_cat limit 6 ";
+					$result = mysqli_query($mysqli,$sql);
+					if($result)
+					{
+						while($row = mysqli_fetch_assoc($result))
+							{?>
+								<form method="post" action="giayNam.php?action=add&code=<?php echo $row['id']; ?>">
+									<div class="col-md-4 ">
+										<div class="row">
+											<div class="col-md-12 ">
+												<div class="thumbnail">
+													<div class="hovereffect">
+													</br>
+													<a href="detailNam.php"><img src="<?php echo $row['img']; ?>" ></a>
+												</div>
+												<div class="caption">
+												</br><p>
+													<label><?php echo $row['prod_name']; ?> </label>
+												</p>
+												<p>
+													<label><?php echo $row['price']; ?>.000 vnđ</label>
+												</p>
+												<p>
+													<div class="cart-action">
+														<input type="text" class="product-quantity" name="quantity" value="1" size="2" />
+														<input type="submit" class="btn btn-danger" value="Add to Cart" class="btnAddAction" />
+													</div>
+													<br>
+													<a href="detailNam.php?id=<?php echo $row['id'] ?>&category_id=<?php echo $row['category_id'] ?> ">Chi Tiết Sản Phẩm</a>
+												</p>
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-							<?php }} ?>
+						</form>
+					<?php }} ?>
 				</div>
-			</div>
+			</form>
 		</div>
+		<?php include("modelCart.php"); ?>
 			<?php include("footer.php"); ?>
 </body>
 
 
 
 </html>
-<!-- <table id="cart" class="table table-hover table-condensed">
-    				<thead>
-						<tr>
-							<th style="width:50%">Product</th>
-							<th style="width:10%">Price</th>
-							<th style="width:8%">Quantity</th>
-							<th style="width:22%" class="text-center">Subtotal</th>
-							<th style="width:10%"></th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td data-th="Product">
-								<div class="row">
-									<div class="col-sm-2 hidden-xs"><img src="http://placehold.it/100x100" alt="..." class="img-responsive"/></div>
-									<div class="col-sm-10">
-										<h4 class="nomargin">Product 1</h4>
-										<p>Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet.</p>
-									</div>
-								</div>
-							</td>
-							<td data-th="Price">$1.99</td>
-							<td data-th="Quantity">
-								<input type="number" class="form-control text-center" value="1">
-							</td>
-							<td data-th="Subtotal" class="text-center">1.99</td>
-							<td class="actions" data-th="">
-								<button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button>
-								<button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>								
-							</td>
-						</tr>
-					</tbody>
-					<tfoot>
-						<tr class="visible-xs">
-							<td class="text-center"><strong>Total 1.99</strong></td>
-						</tr>
-						<tr>
-							<td><a href="#" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
-							<td colspan="2" class="hidden-xs"></td>
-							<td class="hidden-xs text-center"><strong>Total $1.99</strong></td>
-							<td><a href="#" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
-						</tr>
-					</tfoot>
-				</table> -->

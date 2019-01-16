@@ -71,5 +71,6 @@ if($stmt = $mysqli->prepare($sql_Insert_User)){
     echo "<a href='Sign_In.php'>Try again</a>";
     }
 }
-        
+   header("Location: index.php"); /* Redirect browser */
+exit();     
 ?>

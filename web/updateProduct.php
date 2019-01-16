@@ -19,7 +19,7 @@ include('connect.php');
 	}
     $sql="UPDATE products set prod_name='$pr_name',price='$pr_price', quantity='$pr_quan',category_id='$pr_cate',comments='$pr_com',describes=$pr_des,img='$p_img' 
     where id='".$id."'";
-    echo "abc".$p_img;    echo $sql;
+    // echo "abc".$p_img;    echo $sql;
 if (!is_dir('img')) {
 	mkdir('img');
 }
@@ -36,13 +36,11 @@ if (isset($_FILES['fileUpload'])) {
 		//echo" Update successfully <br>";
     
 
-        header("Location: displayProduct.php"); /* Redirect browser */
-        exit(); /* Redirect browser */
+        // header("Location: displayProduct.php"); 
+        
 	}
-		//else
-		//{
-	//echo"<br>ERROR:Couls not able to execute $sql.".$mysqli-> error;
-		//}
-        //
+		echo "<script>
+            window.location.replace('http://localhost/PHP2018/PHP_Project/web/displayProduct.php');
+            </script>";
 
  ?>

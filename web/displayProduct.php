@@ -49,10 +49,10 @@
 								<td><?php echo $row['describes']; ?></td>
 								<td><?php echo $row['imported_date']; ?></td>
 								<td><img src="<?php echo $row['img']; ?>" style ="width: 100px; height: 100px;"></td>
-								<td><?php 
-								echo "<p><a href='formUpdateProduct.php?id=". $row['id'] ."'>Sửa     |   </a>";
-								echo  "<a href='deleteProduct.php?id=". $row['id'] ."'>Xóa</a></p>";
-								?>	
+								<td>
+									<a href="formUpdateProduct.php?id=<?php echo $row['id'] ?> ">Sửa |</a>
+									<a href="delete.php?id=<?php echo $row['id'] ?> ">Xóa</a>
+									
 							</td>
 						</tbody>
 					<?php }} ?>

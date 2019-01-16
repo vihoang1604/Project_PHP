@@ -39,7 +39,7 @@ include('connect.php');
 						<a href="formProduct.php" >Thêm sản phẩm  | </a>	
 						<a href="formCategory.php" >Thêm Thể loại  |</a>	
 						<a href="displayProduct.php">Xem sửa sản phẩm   | </a>
-						<a href="index.php" >Đăng xuất    </a>
+						<a href="index.php" >Đăng xuất</a>
 					</li>
 
 				</ul>

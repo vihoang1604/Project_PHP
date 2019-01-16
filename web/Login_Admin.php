@@ -17,11 +17,11 @@
         
         // mã hóa pasword
         // $password = md5($password);
-        $sql = "SELECT * FROM users WHERE user_name = 'administrator'";
+        $sql = "SELECT * FROM users WHERE user_name = 'administrator' and passwords='matkhau'";
         //Kiểm tra tên đăng nhập có tồn tại không
         $query = mysqli_query($mysqli,$sql);
         if (mysqli_num_rows($query) == 0) {
-            echo "Tên đăng nhập không đúng!! <a href='javascript: history.go(-1)'>Trở lại</a>";
+            echo "Tên đăng nhập không đúng! <a href='javascript: history.go(-1)'>Trở lại</a>";
             exit;
         }
         
@@ -36,8 +36,8 @@
         
         //Lưu tên đăng nhập
         $_SESSION['username'] = $username;
-        echo "<a href='displayProduct.php'>Đã truy cập vào trang admin</a>";
-
+        
+         echo "<a href='displayProduct.php'>Đã truy cập vào trang admin</a>";
     }
     ?>
 
@@ -62,12 +62,12 @@
                  <form action="" method="POST" role="form">
                     <div class="form-group">
                         <label for="">User name:</label>
-                        <input type="text" class="form-control" id="" name="admin">
+                        <input type="text" class="form-control" id="" name="admin" required="required">
                     </div>
 
                     <div class="form-group">
                         <label for="">Password:</label>
-                        <input type="password" class="form-control" id="" name="passAdmin">
+                        <input type="password" class="form-control" id="" name="passAdmin" required="required">
                     </div>
 
                     
@@ -80,6 +80,6 @@
         </div>
     </div>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>
-    
+  
 </body>
 </html>

@@ -17,7 +17,7 @@ if (isset($_POST['dangnhap']))
 
     //Kiểm tra đã nhập đủ tên đăng nhập với mật khẩu chưa
     if (!$username || !$password) {
-        echo "Vui lòng nhập đầy đủ tên đăng nhập và mật khẩu. <a href='javascript: history.go(-1)'>Trở lại</a>";
+        echo "Vui lòng nhập đầy đủ tên đăng nhập và mật khẩu. <a href='index.php'></a>";
         exit;
     }
 
@@ -28,7 +28,7 @@ if (isset($_POST['dangnhap']))
     $query = mysqli_query($mysqli,$sql);
 
     if (mysqli_num_rows($query) == 0) {
-        echo "Tên đăng nhập này không tồn tại. Vui lòng kiểm tra lại. <a href='javascript: history.go(-1)'>Trở lại</a>";
+        echo "Tên đăng nhập này không tồn tại. Vui lòng kiểm tra lại. <a href='index.php'>Trở lại</a>";
         exit;
     }
 
@@ -43,9 +43,10 @@ if (isset($_POST['dangnhap']))
 
     //Lưu tên đăng nhập
     $_SESSION['username'] = $username;
-    echo "Xin chào " . $username . ". Bạn đã đăng nhập thành công. <a href='index.php'>Về trang chủ</a>";
+   header("Location: index.php");
     die();
 }
+
 ?>
 <!DOCTYPE html>
 <html>
